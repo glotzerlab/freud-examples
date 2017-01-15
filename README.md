@@ -1,11 +1,11 @@
-[![Binder](http://mybinder.org/badge.svg)](http://mybinder.org:/repo/joaander/hoomd-examples)
+[![Binder](http://mybinder.org/badge.svg)](http://mybinder.org:/repo/harperic/freud-examples)
 
 # Freud example scripts
 
 Welcome to the Freud example scripts. These jupyter notebooks demonstrate how to utilize the
-functionality of [Freud](), from the most basic
-level to advanced topics. You can view a [static version of the notebooks online](). For an intereactive exploration, you can
-[launch a dynamic version online](),
+functionality of [Freud](http://glotzerlab.engin.umich.edu/freud/), from the most basic
+level to advanced topics. You can view a [static version of the notebooks online](http://nbviewer.jupyter.org/github/harperic/freud-examples/blob/master/index.ipynb). For an intereactive exploration, you can
+[launch a dynamic version online](http://mybinder.org:/repo/harperic/freud-examples),
 or download the examples and run them on your own system.
 ```
 git clone https://bitbucket.org/glotzer/freud-examples.git
