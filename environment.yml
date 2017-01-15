@@ -14,7 +14,7 @@ dependencies:
 - tbb=4.4.0=1
 - icu=54.1=0
 - ipykernel=4.5.2=py35_0
-- ipython=5.1.0=py35_1
+- ipython=5.1.0=py35_0
 - ipython_genutils=0.1.0=py35_0
 - ipywidgets=5.2.2=py35_0
 - jinja2=2.8.1=py35_0
