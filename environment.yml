@@ -1,6 +1,4 @@
-name: freud-examples
 channels:
-- file:///nfs/glotzer/software/conda-private
 - glotzer
 - defaults
 dependencies:
