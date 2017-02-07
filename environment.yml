@@ -41,7 +41,7 @@ dependencies:
 - mkl=2017.0.1=0
 - nbconvert=4.2.0=py35_0
 - nbformat=4.2.0=py35_0
-- notebook=4.3.1=py35_0
+- notebook=4.2.2=py35_0
 - numpy=1.11.3=py35_0
 - openssl=1.0.2k=0
 - path.py=10.0=py35_0
