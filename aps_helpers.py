@@ -159,7 +159,7 @@ class DemoData(object):
         neigh_color = np.array([c_list[1] for _ in range(neigh_pos.shape[0])])
 
         # plot
-        p = figure(title="Nearest Neighbors Visualization",
+        p = figure(title=title,
             x_range=x_range, y_range=y_range,
             height=300,width=300)
         p.patches(xs=patches[:,:,0].tolist(),
@@ -223,7 +223,7 @@ class DemoData(object):
         # find number of missing neighbors per particle
         n_deficits = n_neigh - n_neighbors
 
-        p = figure(title="Nearest Neighbors Visualization",
+        p = figure(title=title,
             x_range=x_range, y_range=y_range,
             height=300,width=300)
         for k in np.unique(n_neighbors):
@@ -255,7 +255,7 @@ class DemoData(object):
         return p
 
     def plot_hexatic(self, frame_idx, psi_k, avg_psi_k,
-        title="Nearest Neighbor Visualization", linked_plot=None):
+        title="Hexatic Visualization", linked_plot=None):
 
         l_box = self.box_data[frame_idx]
         l_pos = self.pos_data[frame_idx]
@@ -284,7 +284,7 @@ class DemoData(object):
         # bokeh (as of this version) requires hex colors, so convert rgb to hex
         hex_color = ["#{0:02x}{1:02x}{2:02x}".format(clamp(r), clamp(g), clamp(b)) for (r,g,b) in color]
         # plot
-        p = figure(title="Hexatic Visualization",
+        p = figure(title=title,
             x_range=x_range, y_range=y_range,
             height=300,width=300)
         p.patches(xs=patches[:,:,0].tolist(),
@@ -296,7 +296,7 @@ class DemoData(object):
         return p
 
     def plot_orientation(self, frame_idx,
-        title="Nearest Neighbor Visualization", linked_plot=None):
+        title="Orientation Visualization", linked_plot=None):
 
         l_box = self.box_data[frame_idx]
         l_pos = self.pos_data[frame_idx]
@@ -324,7 +324,7 @@ class DemoData(object):
         # bokeh (as of this version) requires hex colors, so convert rgb to hex
         hex_color = ["#{0:02x}{1:02x}{2:02x}".format(clamp(r), clamp(g), clamp(b)) for (r,g,b) in color]
         # plot
-        p = figure(title="Orientation Visualization",
+        p = figure(title=title,
             x_range=x_range, y_range=y_range,
             height=300,width=300)
         p.patches(xs=patches[:,:,0].tolist(),
