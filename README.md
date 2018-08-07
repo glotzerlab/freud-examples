@@ -4,7 +4,7 @@
 
 Welcome to the freud example scripts.
 These Jupyter notebooks demonstrate how to utilize the functionality of [freud](http://glotzerlab.engin.umich.edu/freud/).
-These notebooks may be launched [interactively on mybinder](https://mybinder.org/v2/gh/glotzerlab/freud-examples/master?filepath=index.ipynb)
+These notebooks may be launched [interactively on Binder](https://mybinder.org/v2/gh/glotzerlab/freud-examples/master?filepath=index.ipynb)
 or downloaded and run on your own system.
 
 ```bash
