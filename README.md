@@ -2,11 +2,10 @@
 
 # freud examples
 
-Welcome to the freud example scripts. These Jupyter notebooks demonstrate how to utilize the
-functionality of [freud](http://glotzerlab.engin.umich.edu/freud/), from the most basic
-level to advanced topics. You can view a [static version of the notebooks online](http://nbviewer.jupyter.org/github/harperic/freud-examples/blob/master/index.ipynb). For an interactive exploration, you can
-[launch a dynamic version online](http://mybinder.org:/repo/harperic/freud-examples),
-or download the examples and run them on your own system.
+Welcome to the freud example scripts.
+These Jupyter notebooks demonstrate how to utilize the functionality of [freud](http://glotzerlab.engin.umich.edu/freud/).
+These notebooks may be launched [interactively on mybinder](http://mybinder.org:/repo/harperic/freud-examples),
+or downloaded and run on your own system.
 
 ```bash
 git clone https://bitbucket.org/glotzer/freud-examples.git
