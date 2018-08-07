@@ -1,10 +1,10 @@
-[![Binder](http://mybinder.org/badge.svg)](http://mybinder.org:/repo/harperic/freud-examples)
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/glotzerlab/freud-examples/master?filepath=index.ipynb)
 
 # freud examples
 
 Welcome to the freud example scripts.
 These Jupyter notebooks demonstrate how to utilize the functionality of [freud](http://glotzerlab.engin.umich.edu/freud/).
-These notebooks may be launched [interactively on mybinder](http://mybinder.org:/repo/harperic/freud-examples),
+These notebooks may be launched [interactively on mybinder](https://mybinder.org/v2/gh/glotzerlab/freud-examples/master?filepath=index.ipynb)
 or downloaded and run on your own system.
 
 ```bash
