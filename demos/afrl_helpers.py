@@ -15,6 +15,7 @@ from IPython.display import display
 from matplotlib import cm
 import matplotlib.colors as mplColors
 import time
+import util
 # import freud box class
 from freud import box
 # define vertices for hexagons
