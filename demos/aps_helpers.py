@@ -11,6 +11,7 @@ import numpy as np
 # import ipywidgets for display purposes
 from ipywidgets import IntProgress
 from IPython.display import display
+import util
 # import time to display computation time
 import time
 # import freud box class

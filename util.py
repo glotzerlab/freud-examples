@@ -189,6 +189,9 @@ def local_to_global(verts, positions, orientations):
     a list of vertices in the "global coordinate system" for plotting
     in bokeh
     """
+    verts = np.asarray(verts)
+    positions = np.asarray(positions)
+    orientations = np.asarray(orientations)
     # create array of rotation matrices
     rot_mats = np.array([[[np.cos(theta), -np.sin(theta)],
                          [np.sin(theta), np.cos(theta)]]
