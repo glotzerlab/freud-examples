@@ -8,7 +8,7 @@ These notebooks may be launched [interactively on Binder](https://mybinder.org/v
 or downloaded and run on your own system.
 
 ```bash
-git clone https://bitbucket.org/glotzer/freud-examples.git
+git clone https://github.com/glotzerlab/freud-examples.git
 cd freud-examples
 jupyter notebook
 ```
