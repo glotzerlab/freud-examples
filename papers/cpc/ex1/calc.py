@@ -25,7 +25,7 @@ box = freud.box.Box.from_box(
 # freud coordinate system, which is centered at the origin.
 # Since all methods support periodicity, this shift is simply
 # for consistency but does not affect any analyses.
-data -= box.L/2
+data[..., :3] -= box.L/2
 rdf = freud.density.RDF(rmax=4, dr=0.03, rmin=1)
 for frame in data:
     rdf.accumulate(box, frame[:, :3])

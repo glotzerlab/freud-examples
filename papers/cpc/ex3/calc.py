@@ -21,16 +21,23 @@ import networkx as nx
 
 diagrams = defaultdict(list)
 for (a, b), neighbors in common_neighbors.items():
+    # Build up the graph of connections between the
+    # common neighbors of a and b.
     g = nx.Graph()
     for i in neighbors:
         for j in set(nl.index_j[
             nl.index_i == i]).intersection(neighbors):
             g.add_edge(i, j)
 
+    # Define the first 3 identifiers for a CNA diagram.
     are_neighbors = b in nl.index_j[nl.index_i == a]
     key = (are_neighbors, len(neighbors), g.number_of_edges())
-    if key, graphs in diagrams.values():
-        if all([not nx.is_isomorphic(g, h) for h in graphs]):
-            graphs.append(g)
+    # If we've seen any neighborhood graphs with this signature,
+    # we explicitly check if the two graphs are identical to
+    # determine whether to save this one. Otherwise, we add
+    # the new graph immediately.
+    if key in diagrams:
+        if all([not nx.is_isomorphic(g, h) for h in diagrams[key]]):
+            diagrams[key].append(g)
     else:
-        graphs.append(g)
+        diagrams[key].append(g)

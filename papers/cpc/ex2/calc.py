@@ -15,16 +15,20 @@ box = freud.box.Box.from_box(system.box)
 w6 = freud.order.LocalWlNear(box, 4, 6, 12)
 
 def calc_rdf(timestep):
+    hoomd.util.quiet_status()
     snap = system.take_snapshot()
+    hoomd.util.unquiet_status()
     rdf.accumulate(box, snap.particles.position)
 
 def calc_W6(timestep):
+    hoomd.util.quiet_status()
     snap = system.take_snapshot()
+    hoomd.util.unquiet_status()
     w6.compute(snap.particles.position)
     return np.mean(np.real(w6.Wl))
 
 # Equilibrate the system before accumulating the RDF.
-hoomd.run(1e6)
+hoomd.run(1e4)
 hoomd.analyze.callback(calc_rdf, period=100)
 
 logger = hoomd.analyze.log(filename='output.log',
@@ -34,7 +38,7 @@ logger = hoomd.analyze.log(filename='output.log',
 
 logger.register_callback('w6', calc_W6)
 
-hoomd.run(2e5)
+hoomd.run(1e4)
 
 # Store the computed RDF in a file
 np.savetxt('rdf.csv', np.vstack((rdf.R, rdf.RDF)).T,
