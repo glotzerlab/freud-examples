@@ -8,5 +8,5 @@ dependencies:
 - matplotlib
 - numpy
 - scipy
-- sklearn
+- scikit-learn
 - bokeh=1.1.0
