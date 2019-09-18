@@ -30,11 +30,11 @@ dependencies:
 - libiconv=1.15=h470a237_1
 - libpng=1.6.34=ha92aebf_1
 - libtiff=4.0.9=he6b73bb_1
-- libuuid=2.32.1=h470a237_0
+- libuuid=2.32.1
 - libxcb=1.13=h470a237_2
 - libxml2=2.9.8=h422b904_2
 - markupsafe=1.0=py36_0
-- matplotlib=2.2.2=py36_1
+- matplotlib=2.2.2
 - ncurses=6.1=hfc679d8_1
 - numpy=1.15.0=py36_blas_openblashd3ea46f_200
 - olefile=0.45.1=py_1
@@ -51,7 +51,7 @@ dependencies:
 - python-dateutil=2.7.3=py_0
 - pytz=2018.5=py_0
 - pyyaml=3.12=py36_1
-- qt=5.6.2=h50c60fd_8
+- qt=5.6.2
 - readline=7.0=haf1bffa_1
 - scipy=1.1.0=py36_blas_openblashd3ea46f_201
 - setuptools=40.0.0=py36_1
