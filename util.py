@@ -109,7 +109,7 @@ def make_square(nx=1, ny=1, fractions=np.array([[0, 0, 0]], dtype=np.float32),
     positions = ((fractions - .5)*box).reshape((-1, 3))
 
     if noise != 0:
-        positions += np.random.normal(scale=noise, size=positions.shape)
+        positions += np.random.normal(scale=[noise, noise, 0], size=positions.shape)
 
     return freud.box.Box(*box), positions
 
