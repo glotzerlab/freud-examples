@@ -26,7 +26,7 @@ references:
         conda env create -f environment.yml
         conda activate freud-examples
         conda uninstall freud
-        conda install cython tbb tbb-devel numpy pytest nbval
+        conda install gcc_linux-64 gxx_linux-64 cython numpy tbb tbb-devel pytest nbval
 
   build_freud: &build_freud
     run:
