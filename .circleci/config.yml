@@ -4,46 +4,67 @@ references:
   container_miniconda: &container_miniconda
     docker:
       - image: continuumio/miniconda
-    working_directory: /opt
+    working_directory: ~/ci/freud-examples
 
   load_code: &load_code
     checkout
+
+  update_conda: &update_conda
+    run:
+      name: Update and initialize conda
+      command: |
+        conda config --add channels conda-forge
+        conda config --set always_yes true
+        conda config --set quiet true
+        conda init bash
+        conda update conda
 
   load_environment: &load_environment
     run:
       name: Load conda environment
       command: |
+        # Create the mybinder environment
         conda env create -f environment.yml
         conda activate freud-examples
+        # Remove freud so it can be built from source
         conda uninstall freud
-        conda install cython tbb tbb-devel numpy pytest nbval
+        # Install build requirements for freud
+        conda install gcc_linux-64 gxx_linux-64 cython numpy tbb tbb-devel
+        # Install testing requirements
+        conda install pytest nbval
 
   build_freud: &build_freud
     run:
       name: Build freud from master branch
       command: |
-        cd /opt
+        conda activate freud-examples
+        cd ~/ci/
         git clone https://github.com/glotzerlab/freud --recurse-submodules
         cd freud
         rm freud/*.cpp
-        python setup.py build_ext --inplace --COVERAGE --ENABLE-CYTHON
+        python setup.py install --ENABLE-CYTHON
 
-  test_evaluation: &test_evaluation
+  test_execution: &test_execution
     run:
       name: Run notebook execution tests
       command: |
+        conda activate freud-examples
+        cd ~/ci/freud-examples/
         python -m pytest -v --nbval --nbval-lax --ignore=archive/
 
   build_and_test: &build_and_test
     steps:
       - *load_code
+      - *update_conda
       - *load_environment
       - *build_freud
-      - *test_evaluation
+      - *test_execution
 
 jobs:
   test_notebooks:
     <<: *container_miniconda
+    environment:
+      BASH_ENV: "~/.bashrc"
     <<: *build_and_test
 
 workflows:
