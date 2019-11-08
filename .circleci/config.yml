@@ -1,0 +1,53 @@
+version: 2
+
+references:
+  container_miniconda: &container_miniconda
+    docker:
+      - image: continuumio/miniconda
+    working_directory: /opt
+
+  load_code: &load_code
+    checkout
+
+  load_environment: &load_environment
+    run:
+      name: Load conda environment
+      command: |
+        conda env create -f environment.yml
+        conda activate freud-examples
+        conda uninstall freud
+        conda install cython tbb tbb-devel numpy pytest nbval
+
+  build_freud: &build_freud
+    run:
+      name: Build freud from master branch
+      command: |
+        cd /opt
+        git clone https://github.com/glotzerlab/freud --recurse-submodules
+        cd freud
+        rm freud/*.cpp
+        python setup.py build_ext --inplace --COVERAGE --ENABLE-CYTHON
+
+  test_evaluation: &test_evaluation
+    run:
+      name: Run notebook execution tests
+      command: |
+        python -m pytest -v --nbval --nbval-lax --ignore=archive/
+
+  build_and_test: &build_and_test
+    steps:
+      - *load_code
+      - *load_environment
+      - *build_freud
+      - *test_evaluation
+
+jobs:
+  test_notebooks:
+    <<: *container_miniconda
+    <<: *build_and_test
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test_notebooks
