@@ -4,7 +4,7 @@ references:
   container_miniconda: &container_miniconda
     docker:
       - image: continuumio/miniconda
-    working_directory: /opt
+    working_directory: ~/ci/freud-examples
 
   load_code: &load_code
     checkout
@@ -22,7 +22,7 @@ references:
     run:
       name: Build freud from master branch
       command: |
-        cd /opt
+        cd ~/ci/
         git clone https://github.com/glotzerlab/freud --recurse-submodules
         cd freud
         rm freud/*.cpp
