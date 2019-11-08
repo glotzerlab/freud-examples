@@ -23,10 +23,15 @@ references:
     run:
       name: Load conda environment
       command: |
+        # Create the mybinder environment
         conda env create -f environment.yml
         conda activate freud-examples
+        # Remove freud so it can be built from source
         conda uninstall freud
-        conda install gcc_linux-64 gxx_linux-64 cython numpy tbb tbb-devel pytest nbval
+        # Install build requirements for freud
+        conda install gcc_linux-64 gxx_linux-64 cython numpy tbb tbb-devel
+        # Install testing requirements
+        conda install pytest nbval
 
   build_freud: &build_freud
     run:
