@@ -1,0 +1,7 @@
+conf.gro
+topol.top
+min*
+eq*
+\#*#
+mdp
+*.npz
