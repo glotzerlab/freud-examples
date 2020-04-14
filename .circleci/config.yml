@@ -41,8 +41,7 @@ references:
         cd ~/ci/
         git clone https://github.com/glotzerlab/freud --recurse-submodules
         cd freud
-        rm freud/*.cpp
-        python setup.py install --ENABLE-CYTHON
+        python setup.py install
 
   test_execution: &test_execution
     run:
