@@ -8,17 +8,17 @@ repos:
         exclude: 'setup.cfg'
       - id: debug-statements
   - repo: https://github.com/asottile/pyupgrade
-    rev: 'v2.10.0'
+    rev: 'v2.14.0'
     hooks:
       - id: pyupgrade
         args:
           - --py36-plus
   - repo: https://github.com/pycqa/isort
-    rev: '5.7.0'
+    rev: '5.8.0'
     hooks:
       - id: isort
   - repo: https://github.com/psf/black
-    rev: '20.8b1'
+    rev: '21.5b0'
     hooks:
       - id: black
 # - repo: https://gitlab.com/pycqa/flake8
@@ -28,7 +28,7 @@ repos:
 #       args:
 #         - --max-line-length=100
   - repo: https://github.com/nbQA-dev/nbQA
-    rev: 0.5.7
+    rev: 0.8.0
     hooks:
       - id: nbqa-pyupgrade
         args:
@@ -40,14 +40,14 @@ repos:
       - id: nbqa-black
         args:
           - --nbqa-mutate
-  - repo: https://github.com/kynan/nbstripout
-    rev: 0.3.9
-    hooks:
-      - id: nbstripout
-        args:
-          # Strip metadata but keep counts and outputs
-          - --keep-count
-          - --keep-output
+# - repo: https://github.com/kynan/nbstripout
+#   rev: 0.4.0
+#   hooks:
+#     - id: nbstripout
+#       args:
+#         # Strip metadata but keep counts and outputs
+#         - --keep-count
+#         - --keep-output
   - repo: https://github.com/bdice/nb-strip-paths
     rev: 'v0.1.0'
     hooks:
