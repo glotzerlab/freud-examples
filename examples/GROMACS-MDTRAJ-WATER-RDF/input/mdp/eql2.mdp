@@ -1,5 +1,5 @@
 
-integrator               = md        
+integrator               = md
 dt                       = 0.002     ; 2 fs
 nsteps                   = 500000    ; 1.0 ns
 
@@ -26,7 +26,7 @@ tau-t                    = 2.0
 ref-t                    = 298.15
 nhchainlength            = 1
 
-pcoupl                   = Parrinello-Rahman 
+pcoupl                   = Parrinello-Rahman
 tau_p                    = 4.0
 compressibility          = 4.46e-5
-ref_p                    = 1.0 
+ref_p                    = 1.0
