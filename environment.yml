@@ -17,6 +17,7 @@ dependencies:
   - notebook>=6
   - numpy
   - pillow
+  - pip
   - pre-commit
   - python>=3.6
   - scipy
