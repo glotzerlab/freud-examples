@@ -38,6 +38,7 @@ references:
         cd ~/ci/
         git clone https://github.com/glotzerlab/freud --recurse-submodules
         cd freud
+        conda activate base
         python setup.py install
 
   test_execution: &test_execution

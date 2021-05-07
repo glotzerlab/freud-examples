@@ -55,7 +55,9 @@ jobs:
         repository: glotzerlab/freud
         submodules: true
     - name: Install freud
-      run: python setup.py install
+      run: |-
+        conda activate base
+        python setup.py install
       working-directory: freud
     - name: Display freud version
       run: python3 -c "import freud; print(freud.__version__)"
