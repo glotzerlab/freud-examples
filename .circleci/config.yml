@@ -23,8 +23,9 @@ references:
       name: Load conda environment
       command: |
         # Create the mybinder environment
-        mamba env create -f environment.yml
-        conda activate freud-examples
+        mamba env create -n freud-examples -f environment.yml
+        source activate freud-examples
+        #conda activate freud-examples
         # Remove freud so it can be built from source
         mamba uninstall freud
         # Install build requirements for freud
