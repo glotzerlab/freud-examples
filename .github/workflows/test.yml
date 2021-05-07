@@ -1,0 +1,83 @@
+name: Test
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  # Trigger on pull requests.
+  pull_request:
+
+  # Trigger on pushes to the mainline branches. This prevents building commits twice when the pull
+  # request source branch is in the same repository.
+  push:
+    branches:
+      - "master"
+
+  # Trigger on request.
+  workflow_dispatch:
+
+  # Weekly builds on the master branch to check that the examples continue to work.
+  schedule:
+  - cron:  '0 18 * * 1'
+
+jobs:
+  execute_notebooks:
+    name: Execute notebooks
+    runs-on: ubuntu-latest
+    container:
+      image: condaforge/mambaforge
+      options: -u 0
+    steps:
+    - name: Update conda
+      run: |-
+        conda config --set always_yes true
+        conda config --set quiet true
+        conda init bash
+        mamba update conda mamba
+    - name: Load conda environment
+      run: |-
+        # Create the mybinder environment
+        mamba env install -f environment.yml
+        # Remove freud so it can be built from source
+        mamba uninstall freud
+        # Install build requirements for freud
+        mamba install gcc_linux-64 gxx_linux-64 tbb tbb-devel numpy cython scikit-build cmake
+        # Install testing requirements
+        mamba install pytest nbval
+    # build freud from source to test the examples on the latest version
+    - uses: actions/checkout@v2.3.4
+      with:
+        path: freud
+        repository: glotzerlab/freud
+        submodules: true
+    - name: Install freud
+      run: python setup.py install
+      working-directory: freud
+    - name: Display freud version
+      run: python3 -c "import freud; print(freud.__version__)"
+    # clone the tutorials and run them
+    - uses: actions/checkout@v2.3.4
+      with:
+        path: freud-examples
+    - name: List notebooks
+      run: ls **/*.ipynb
+      working-directory: freud-examples
+    - name: Run notebook execution tests
+      run: python3 -m pytest -v --nbval --nbval-lax --ignore=archive/
+      working-directory: freud-examples
+    # notify developers if the scheduled check fails
+    - name: Slack notification
+      if: ${{ github.event_name == 'schedule' && (failure() || cancelled()) }}
+      uses: 8398a7/action-slack@v3.9.0
+      with:
+        status: ${{ job.status }}
+        fields: workflow,job,message,commit
+        mention: channel
+        if_mention: failure,cancelled
+        channel: '#dev-freud'
+        username: Github Action
+        author_name: ''
+        job_name: Execute notebooks
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
