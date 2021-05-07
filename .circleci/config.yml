@@ -1,9 +1,9 @@
 version: 2
 
 references:
-  container_miniconda: &container_miniconda
+  container: &container
     docker:
-      - image: continuumio/miniconda
+      - image: condaforge/mambaforge
     working_directory: ~/ci/freud-examples
 
   load_code: &load_code
@@ -13,25 +13,24 @@ references:
     run:
       name: Update and initialize conda
       command: |
-        conda config --add channels conda-forge
         conda config --set always_yes true
         conda config --set quiet true
         conda init bash
-        conda update conda
+        mamba update conda mamba
 
   load_environment: &load_environment
     run:
       name: Load conda environment
       command: |
         # Create the mybinder environment
-        conda env create -f environment.yml
+        mamba env create -f environment.yml
         conda activate freud-examples
         # Remove freud so it can be built from source
-        conda uninstall freud
+        mamba uninstall freud
         # Install build requirements for freud
-        conda install gcc_linux-64 gxx_linux-64 tbb tbb-devel numpy cython scikit-build cmake
+        mamba install gcc_linux-64 gxx_linux-64 tbb tbb-devel numpy cython scikit-build cmake
         # Install testing requirements
-        conda install pytest nbval
+        mamba install pytest nbval
 
   build_freud: &build_freud
     run:
@@ -61,7 +60,7 @@ references:
 
 jobs:
   test_notebooks:
-    <<: *container_miniconda
+    <<: *container
     environment:
       BASH_ENV: "~/.bashrc"
     <<: *build_and_test
