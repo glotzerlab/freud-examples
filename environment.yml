@@ -1,3 +1,4 @@
+name: freud-examples
 channels:
   - conda-forge
 dependencies:
