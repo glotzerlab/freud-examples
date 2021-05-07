@@ -21,7 +21,8 @@ def make_cubic(
         noise: Apply Gaussian noise with this width to particle positions (Default value = 0.0).
 
     Returns:
-        tuple (py:class:`freud.box.Box`, :class:`np.ndarray`): freud Box, particle positions, shape=(nx*ny*nz, 3)
+        tuple (py:class:`freud.box.Box`, :class:`np.ndarray`):
+            freud Box, particle positions, shape=(nx*ny*nz, 3)
     """
 
     fractions = np.tile(
@@ -52,7 +53,8 @@ def make_fcc(nx=1, ny=1, nz=1, scale=1.0, noise=0.0):
         noise: Apply Gaussian noise with this width to particle positions (Default value = 0.0)
 
     Returns:
-        tuple (py:class:`freud.box.Box`, :class:`np.ndarray`): freud Box, particle positions, shape=(nx*ny*nz, 3)
+        tuple (py:class:`freud.box.Box`, :class:`np.ndarray`):
+            freud Box, particle positions, shape=(nx*ny*nz, 3)
     """
     fractions = np.array(
         [[0.5, 0.5, 0], [0.5, 0, 0.5], [0, 0.5, 0.5], [0, 0, 0]], dtype=np.float32
@@ -71,7 +73,8 @@ def make_bcc(nx=1, ny=1, nz=1, scale=1.0, noise=0.0):
         noise: Apply Gaussian noise with this width to particle positions (Default value = 0.0)
 
     Returns:
-        tuple (py:class:`freud.box.Box`, :class:`np.ndarray`): freud Box, particle positions, shape=(nx*ny*nz, 3)
+        tuple (py:class:`freud.box.Box`, :class:`np.ndarray`):
+            freud Box, particle positions, shape=(nx*ny*nz, 3)
     """
     fractions = np.array([[0.5, 0.5, 0.5], [0, 0, 0]], dtype=np.float32)
     return make_cubic(nx, ny, nz, fractions, scale, noise)
@@ -88,7 +91,8 @@ def make_sc(nx=1, ny=1, nz=1, scale=1.0, noise=0.0):
         noise: Apply Gaussian noise with this width to particle positions (Default value = 0.0)
 
     Returns:
-        tuple (py:class:`freud.box.Box`, :class:`np.ndarray`): freud Box, particle positions, shape=(nx*ny*nz, 3)
+        tuple (py:class:`freud.box.Box`, :class:`np.ndarray`):
+            freud Box, particle positions, shape=(nx*ny*nz, 3)
     """
     fractions = np.array([[0, 0, 0]], dtype=np.float32)
     return make_cubic(nx, ny, nz, fractions, scale, noise)
@@ -107,7 +111,8 @@ def make_square(
         noise: Apply Gaussian noise with this width to particle positions (Default value = 0.0)
 
     Returns:
-        tuple (py:class:`freud.box.Box`, :class:`np.ndarray`): freud Box, particle positions, shape=(nx*ny*nz, 3)
+        tuple (py:class:`freud.box.Box`, :class:`np.ndarray`):
+            freud Box, particle positions, shape=(nx*ny*nz, 3)
     """
     fractions = np.tile(
         fractions[np.newaxis, np.newaxis, np.newaxis], (nx, ny, 1, 1, 1)

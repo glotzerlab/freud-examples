@@ -1,4 +1,3 @@
-import freud
 import numpy as np
 
 

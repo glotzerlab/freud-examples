@@ -1,15 +1,8 @@
-import time
-
 import numpy as np
 from bokeh.io import output_notebook
-from bokeh.layouts import column, gridplot, layout, row, widgetbox
-from bokeh.plotting import figure, output_file, show
+from bokeh.plotting import figure
 from bokeh.resources import INLINE
 from freud import box
-from IPython.display import display
-from ipywidgets import IntProgress
-
-import util
 
 output_notebook(resources=INLINE)
 
@@ -248,7 +241,7 @@ class DemoData:
         n_neighbors = np.sum(int_arr, axis=1)
         # find the complement (if desired) to
         # find number of missing neighbors per particle
-        n_deficits = n_neigh - n_neighbors
+        # n_deficits = n_neigh - n_neighbors
 
         p = figure(title=title, x_range=x_range, y_range=y_range, height=300, width=300)
         for k in np.unique(n_neighbors):
