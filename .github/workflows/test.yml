@@ -34,13 +34,13 @@ jobs:
       with:
         path: freud-examples
     - uses: conda-incubator/setup-miniconda@v2
-        with:
-          python-version: ${{ matrix.python-version }}
-          mamba-version: "*"
-          channels: conda-forge
-          channel-priority: true
-          activate-environment: freud-examples
-          environment-file: freud-examples/environment.yml
+      with:
+        python-version: ${{ matrix.python-version }}
+        mamba-version: "*"
+        channels: conda-forge
+        channel-priority: true
+        activate-environment: freud-examples
+        environment-file: freud-examples/environment.yml
     - name: Prepare conda environment
       run: |-
         # Remove freud so it can be built from source
