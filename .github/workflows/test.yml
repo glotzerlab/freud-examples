@@ -38,7 +38,7 @@ jobs:
     - name: Load conda environment
       run: |-
         # Create the mybinder environment
-        mamba env install -f environment.yml
+        mamba env update --file environment.yml
         # Remove freud so it can be built from source
         mamba uninstall freud
         # Install build requirements for freud
