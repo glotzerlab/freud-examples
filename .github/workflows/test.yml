@@ -45,7 +45,7 @@ jobs:
         # Remove freud so it can be built from source
         mamba uninstall freud
         # Install build requirements for freud
-        mamba install gcc_linux-64 gxx_linux-64 tbb tbb-devel numpy cython scikit-build cmake
+        mamba install gcc_linux-64 gxx_linux-64 tbb tbb-devel numpy cython scikit-build cmake ninja
         # Install testing requirements
         mamba install pytest nbval
     # build freud from source to test the examples on the latest version
