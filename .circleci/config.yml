@@ -27,7 +27,7 @@ references:
         # Remove freud so it can be built from source
         mamba uninstall freud
         # Install build requirements for freud
-        mamba install gcc_linux-64 gxx_linux-64 tbb tbb-devel numpy cython scikit-build cmake ninja
+        mamba install gcc_linux-64 gxx_linux-64 tbb tbb-devel numpy cython scikit-build cmake ninja make
         # Install testing requirements
         mamba install pytest nbval
 
@@ -38,7 +38,6 @@ references:
         cd ~/ci/
         git clone https://github.com/glotzerlab/freud --recurse-submodules
         cd freud
-        conda activate base
         python setup.py install
 
   test_execution: &test_execution
