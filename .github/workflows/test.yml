@@ -29,6 +29,9 @@ jobs:
       image: condaforge/mambaforge
       options: -u 0
     steps:
+    - uses: actions/checkout@v2.3.4
+      with:
+        path: freud-examples
     - name: Update conda
       run: |-
         conda config --set always_yes true
@@ -38,7 +41,7 @@ jobs:
     - name: Load conda environment
       run: |-
         # Create the mybinder environment
-        mamba env update --file environment.yml
+        mamba env update --file freud-examples/environment.yml
         # Remove freud so it can be built from source
         mamba uninstall freud
         # Install build requirements for freud
@@ -57,9 +60,6 @@ jobs:
     - name: Display freud version
       run: python3 -c "import freud; print(freud.__version__)"
     # clone the tutorials and run them
-    - uses: actions/checkout@v2.3.4
-      with:
-        path: freud-examples
     - name: List notebooks
       run: ls **/*.ipynb
       working-directory: freud-examples
