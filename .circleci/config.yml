@@ -29,7 +29,7 @@ references:
         # Remove freud so it can be built from source
         conda uninstall freud
         # Install build requirements for freud
-        conda install gcc_linux-64 gxx_linux-64 cython numpy tbb tbb-devel
+        conda install gcc_linux-64 gxx_linux-64 tbb tbb-devel numpy cython scikit-build cmake
         # Install testing requirements
         conda install pytest nbval
 
