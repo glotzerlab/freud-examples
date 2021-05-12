@@ -5,7 +5,7 @@ dependencies:
   - fresnel
   - freud
   - gsd
-  - hoomd=2
+  - hoomd=2.*
   - ipywidgets>=7
   - jupyterlab>=3
   - lammps
