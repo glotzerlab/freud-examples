@@ -18,6 +18,7 @@ dependencies:
   - pillow
   - pip
   - pre-commit>=2.12
+  - pythreejs
   - scipy
   - tqdm
   - pip:
