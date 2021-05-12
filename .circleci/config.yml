@@ -35,17 +35,19 @@ references:
     run:
       name: Build freud from master branch
       command: |
+        which python3
+        python3 -c "import sys; print(sys.version); print(sys.path)"
         cd ~/ci/
         git clone https://github.com/glotzerlab/freud --recurse-submodules
         cd freud
-        python setup.py install
+        python3 -m pip install
 
   test_execution: &test_execution
     run:
       name: Run notebook execution tests
       command: |
         cd ~/ci/freud-examples/
-        python -m pytest -v --nbval --nbval-lax --ignore=archive/
+        python3 -m pytest -v --nbval --nbval-lax --ignore=archive/
 
   build_and_test: &build_and_test
     steps:

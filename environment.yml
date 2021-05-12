@@ -9,7 +9,6 @@ dependencies:
   - ipywidgets>=7
   - jupyterlab>=3
   - lammps
-  - matplotlib
   - matplotlib>=3
   - mdanalysis
   - nbconvert>=6
