@@ -17,7 +17,7 @@ dependencies:
   - numpy
   - pillow
   - pip
-  - pre-commit
+  - pre-commit>=2.12
   - python>=3.6
   - scipy
   - tqdm
