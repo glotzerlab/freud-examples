@@ -39,11 +39,12 @@ jobs:
         mamba-version: "*"
         channels: conda-forge
         channel-priority: true
-        activate-environment: freud-examples
+        activate-environment: ${GITHUB_WORKSPACE}/venv
         environment-file: freud-examples/environment.yml
+    - name: Add conda to system path
+      run: echo "${GITHUB_WORKSPACE}/venv/bin" >> ${GITHUB_PATH}
     - name: Prepare conda environment
       run: |-
-        conda activate freud-examples
         # Remove freud so it can be built from source
         mamba uninstall freud
         # Install build requirements for freud
@@ -58,14 +59,12 @@ jobs:
         submodules: true
     - name: Install freud
       run: |-
-        conda activate freud-examples
         which python3
         python3 -c "import sys; print(sys.version); print(sys.path)"
         python3 -m pip install .
       working-directory: freud
     - name: Display freud version
       run: |-
-        conda activate freud-examples
         python3 -c "import freud; print(freud.__version__)"
     # clone the tutorials and run them
     - name: List notebooks
@@ -73,7 +72,6 @@ jobs:
       working-directory: freud-examples
     - name: Run notebook execution tests
       run: |-
-        conda activate freud-examples
         python3 -m pytest -v --nbval --nbval-lax --ignore=archive/
       working-directory: freud-examples
     # notify developers if the scheduled check fails
