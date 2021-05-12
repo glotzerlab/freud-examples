@@ -2,16 +2,16 @@
 
                             GROMACS is written by:
      Emile Apol      Rossen Apostolov      Paul Bauer     Herman J.C. Berendsen
-    Par Bjelkmar      Christian Blau   Viacheslav Bolnykh     Kevin Boyd    
- Aldert van Buuren   Rudi van Drunen     Anton Feenstra       Alan Gray     
-  Gerrit Groenhof     Anca Hamuraru    Vincent Hindriksen  M. Eric Irrgang  
+    Par Bjelkmar      Christian Blau   Viacheslav Bolnykh     Kevin Boyd
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra       Alan Gray
+  Gerrit Groenhof     Anca Hamuraru    Vincent Hindriksen  M. Eric Irrgang
   Aleksei Iupinov   Christoph Junghans     Joe Jordan     Dimitrios Karkoulis
-    Peter Kasson        Jiri Kraus      Carsten Kutzner      Per Larsson    
-  Justin A. Lemkul    Viveca Lindahl    Magnus Lundborg     Erik Marklund   
-    Pascal Merz     Pieter Meulenhoff    Teemu Murtola       Szilard Pall   
-    Sander Pronk      Roland Schulz      Michael Shirts    Alexey Shvetsov  
-   Alfons Sijbers     Peter Tieleman      Jon Vincent      Teemu Virolainen 
- Christian Wennberg    Maarten Wolf      Artem Zhmurov   
+    Peter Kasson        Jiri Kraus      Carsten Kutzner      Per Larsson
+  Justin A. Lemkul    Viveca Lindahl    Magnus Lundborg     Erik Marklund
+    Pascal Merz     Pieter Meulenhoff    Teemu Murtola       Szilard Pall
+    Sander Pronk      Roland Schulz      Michael Shirts    Alexey Shvetsov
+   Alfons Sijbers     Peter Tieleman      Jon Vincent      Teemu Virolainen
+ Christian Wennberg    Maarten Wolf      Artem Zhmurov
                            and the project leaders:
         Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
 
@@ -331,13 +331,13 @@ Using 1 MPI thread
 
 Non-default thread affinity set, disabling internal thread affinity
 
-Using 20 OpenMP threads 
+Using 20 OpenMP threads
 
 System total charge: 0.000
 Will do PME sum in reciprocal space for electrostatic interactions.
 
 ++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
-U. Essmann, L. Perera, M. L. Berkowitz, T. Darden, H. Lee and L. G. Pedersen 
+U. Essmann, L. Perera, M. L. Berkowitz, T. Darden, H. Lee and L. G. Pedersen
 A smooth particle mesh Ewald method
 J. Chem. Phys. 103 (1995) pp. 8577-8592
 -------- -------- --- Thank You --- -------- --------
@@ -11493,4 +11493,3 @@ On 1 MPI rank, each using 20 OpenMP threads
                  (ns/day)    (hour/ns)
 Performance:      550.920        0.044
 Finished mdrun on rank 0 Tue Jan 21 16:27:22 2020
-

@@ -1,0 +1,93 @@
+name: Test
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  # Trigger on pull requests.
+  pull_request:
+
+  # Trigger on pushes to the mainline branches. This prevents building commits twice when the pull
+  # request source branch is in the same repository.
+  push:
+    branches:
+      - "master"
+
+  # Trigger on request.
+  workflow_dispatch:
+
+  # Weekly builds on the master branch to check that the examples continue to work.
+  schedule:
+  - cron:  '0 18 * * 1'
+
+jobs:
+  execute_notebooks:
+    name: Execute notebooks, Python ${{ matrix.python-version }}
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.6", "3.9"]
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        path: freud-examples
+    # Important! All steps that use the conda environment should define "shell: bash -l {0}".
+    - uses: conda-incubator/setup-miniconda@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+        mamba-version: "*"
+        channel-priority: strict
+        activate-environment: freud-examples
+        environment-file: freud-examples/environment.yml
+    - name: Prepare conda environment
+      shell: bash -l {0}
+      run: |-
+        # Remove freud so it can be built from source
+        mamba uninstall freud
+        # Install build requirements for freud
+        mamba install gcc_linux-64 gxx_linux-64 tbb tbb-devel numpy cython scikit-build cmake ninja
+        # Install testing requirements
+        mamba install pytest nbval
+    # Build freud from source to test the examples on the latest version
+    - uses: actions/checkout@v2
+      with:
+        path: freud
+        repository: glotzerlab/freud
+        submodules: true
+    - name: Install freud
+      shell: bash -l {0}
+      run: |-
+        which python3
+        python3 -c "import sys; print(sys.version); print(sys.path)"
+        python3 -m pip install .
+      working-directory: freud
+    - name: Display freud version
+      shell: bash -l {0}
+      run: |-
+        python3 -c "import freud; print(freud.__version__)"
+    # clone the tutorials and run them
+    - name: List notebooks
+      run: ls **/*.ipynb
+      working-directory: freud-examples
+    - name: Run notebook execution tests
+      shell: bash -l {0}
+      run: |-
+        python3 -m pytest -v --nbval --nbval-lax --ignore=archive/
+      working-directory: freud-examples
+    # notify developers if the scheduled check fails
+    - name: Slack notification
+      if: ${{ github.event_name == 'schedule' && (failure() || cancelled()) }}
+      uses: 8398a7/action-slack@v3.9.0
+      with:
+        status: ${{ job.status }}
+        fields: workflow,job,message,commit
+        mention: channel
+        if_mention: failure,cancelled
+        channel: '#dev-freud'
+        username: Github Action
+        author_name: ''
+        job_name: Execute notebooks
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}

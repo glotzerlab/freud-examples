@@ -6,7 +6,7 @@
 ;
 ;	Created by:
 ;	                      :-) GROMACS - gmx grompp, 2020 (-:
-;	
+;
 ;	Executable:   /nfs/turbo/bi-vislab/vramasub/local/gromacs_install/bin/gmx
 ;	Data prefix:  /nfs/turbo/bi-vislab/vramasub/local/gromacs_install
 ;	Working dir:  /nfs/turbo/bi-vislab/vramasub/local/freud-paper-figures/figures/subset_atomistic/output
@@ -16,9 +16,9 @@
 ; VARIOUS PREPROCESSING OPTIONS
 ; Preprocessor information: use cpp syntax.
 ; e.g.: -I/home/joe/doe -I/home/mary/roe
-include                  = 
+include                  =
 ; e.g.: -DPOSRES -DFLEXIBLE (note these variable names are case sensitive)
-define                   = 
+define                   =
 
 ; RUN CONTROL PARAMETERS
 integrator               = md
@@ -35,7 +35,7 @@ comm-mode                = Linear
 ; number of steps for center of mass motion removal
 nstcomm                  = 100
 ; group(s) for center of mass motion removal
-comm-grps                = 
+comm-grps                =
 
 ; LANGEVIN DYNAMICS OPTIONS
 ; Friction coefficient (amu/ps) and random seed
@@ -72,9 +72,9 @@ compressed-x-precision   = 1000
 ; This selects the subset of atoms for the compressed
 ; trajectory file. You can select multiple groups. By
 ; default, all atoms will be written.
-compressed-x-grps        = 
+compressed-x-grps        =
 ; Selection of energy groups
-energygrps               = 
+energygrps               =
 
 ; NEIGHBORSEARCHING PARAMETERS
 ; cut-off scheme (Verlet: particle based cut-offs)
@@ -87,7 +87,7 @@ periodic-molecules       = no
 ; Allowed energy error due to the Verlet buffer in kJ/mol/ps per atom,
 ; a value of -1 means: use rlist
 verlet-buffer-tolerance  = 0.005
-; nblist cut-off        
+; nblist cut-off
 rlist                    = 1
 ; long-range cut-off for switched potentials
 
@@ -103,7 +103,7 @@ epsilon-rf               = 0
 ; Method for doing Van der Waals
 vdwtype                  = Cut-off
 vdw-modifier             = Potential-shift-Verlet
-; cut-off lengths       
+; cut-off lengths
 rvdw-switch              = 0
 rvdw                     = 1.0
 ; Apply long range dispersion corrections for Energy and Pressure
@@ -111,7 +111,7 @@ DispCorr                 = EnerPres
 ; Extension of the potential lookup tables beyond the cut-off
 table-extension          = 1
 ; Separate tables between energy group pairs
-energygrp-table          = 
+energygrp-table          =
 ; Spacing for the PME/PPPM FFT grid
 fourierspacing           = 0.12
 ; FFT grid size, when a value is 0 fourierspacing will be used
@@ -128,7 +128,7 @@ epsilon-surface          = 0
 implicit-solvent         = no
 
 ; OPTIONS FOR WEAK COUPLING ALGORITHMS
-; Temperature coupling  
+; Temperature coupling
 tcoupl                   = Nose-Hoover
 nsttcouple               = -1
 nhchainlength            = 1
@@ -138,7 +138,7 @@ tc-grps                  = System
 ; Time constant (ps) and reference temperature (K)
 tau-t                    = 2.0
 ref-t                    = 298.15
-; pressure coupling     
+; pressure coupling
 pcoupl                   = Parrinello-Rahman
 pcoupltype               = Isotropic
 nstpcouple               = -1
@@ -152,44 +152,44 @@ refcoord-scaling         = No
 ; OPTIONS FOR QMMM calculations
 QMMM                     = no
 ; Groups treated Quantum Mechanically
-QMMM-grps                = 
-; QM method             
-QMmethod                 = 
-; QMMM scheme           
+QMMM-grps                =
+; QM method
+QMmethod                 =
+; QMMM scheme
 QMMMscheme               = normal
-; QM basisset           
-QMbasis                  = 
-; QM charge             
-QMcharge                 = 
-; QM multiplicity       
-QMmult                   = 
-; Surface Hopping       
-SH                       = 
-; CAS space options     
-CASorbitals              = 
-CASelectrons             = 
-SAon                     = 
-SAoff                    = 
-SAsteps                  = 
+; QM basisset
+QMbasis                  =
+; QM charge
+QMcharge                 =
+; QM multiplicity
+QMmult                   =
+; Surface Hopping
+SH                       =
+; CAS space options
+CASorbitals              =
+CASelectrons             =
+SAon                     =
+SAoff                    =
+SAsteps                  =
 ; Scale factor for MM charges
 MMChargeScaleFactor      = 1
 
-; SIMULATED ANNEALING  
+; SIMULATED ANNEALING
 ; Type of annealing for each temperature group (no/single/periodic)
-annealing                = 
+annealing                =
 ; Number of time points to use for specifying annealing in each group
-annealing-npoints        = 
+annealing-npoints        =
 ; List of times at the annealing points for each group
-annealing-time           = 
+annealing-time           =
 ; Temp. at each annealing point, for each group.
-annealing-temp           = 
+annealing-temp           =
 
 ; GENERATE VELOCITIES FOR STARTUP RUN
 gen-vel                  = no
 gen-temp                 = 300
 gen-seed                 = -1
 
-; OPTIONS FOR BONDS    
+; OPTIONS FOR BONDS
 constraints              = h-bonds
 ; Type of constraint algorithm
 constraint-algorithm     = lincs
@@ -213,31 +213,31 @@ morse                    = no
 
 ; ENERGY GROUP EXCLUSIONS
 ; Pairs of energy groups for which all non-bonded interactions are excluded
-energygrp-excl           = 
+energygrp-excl           =
 
-; WALLS                
+; WALLS
 ; Number of walls, type, atom types, densities and box-z scale factor for Ewald
 nwall                    = 0
 wall-type                = 9-3
 wall-r-linpot            = -1
-wall-atomtype            = 
-wall-density             = 
+wall-atomtype            =
+wall-density             =
 wall-ewald-zfac          = 3
 
-; COM PULLING          
+; COM PULLING
 pull                     = no
 
-; AWH biasing          
+; AWH biasing
 awh                      = no
 
-; ENFORCED ROTATION    
+; ENFORCED ROTATION
 ; Enforced rotation: No or Yes
 rotation                 = no
 
 ; Group to display and/or manipulate in interactive MD session
-IMD-group                = 
+IMD-group                =
 
-; NMR refinement stuff 
+; NMR refinement stuff
 ; Distance restraints type: No, Simple or Ensemble
 disre                    = No
 ; Force weighting of pairs in one distance restraint: Conservative or Equal
@@ -253,13 +253,13 @@ orire                    = no
 ; Orientation restraints force constant and tau for time averaging
 orire-fc                 = 0
 orire-tau                = 0
-orire-fitgrp             = 
+orire-fitgrp             =
 ; Output frequency for trace(SD) and S to energy file
 nstorireout              = 100
 
 ; Free energy variables
 free-energy              = no
-couple-moltype           = 
+couple-moltype           =
 couple-lambda0           = vdw-q
 couple-lambda1           = vdw-q
 couple-intramol          = no
@@ -267,15 +267,15 @@ init-lambda              = -1
 init-lambda-state        = -1
 delta-lambda             = 0
 nstdhdl                  = 50
-fep-lambdas              = 
-mass-lambdas             = 
-coul-lambdas             = 
-vdw-lambdas              = 
-bonded-lambdas           = 
-restraint-lambdas        = 
-temperature-lambdas      = 
+fep-lambdas              =
+mass-lambdas             =
+coul-lambdas             =
+vdw-lambdas              =
+bonded-lambdas           =
+restraint-lambdas        =
+temperature-lambdas      =
 calc-lambda-neighbors    = 1
-init-lambda-weights      = 
+init-lambda-weights      =
 dhdl-print-energy        = no
 sc-alpha                 = 0
 sc-power                 = 1
@@ -288,12 +288,12 @@ dh_hist_size             = 0
 dh_hist_spacing          = 0.1
 
 ; Non-equilibrium MD stuff
-acc-grps                 = 
-accelerate               = 
-freezegrps               = 
-freezedim                = 
+acc-grps                 =
+accelerate               =
+freezegrps               =
+freezedim                =
 cos-acceleration         = 0
-deform                   = 
+deform                   =
 
 ; simulated tempering variables
 simulated-tempering      = no
@@ -307,8 +307,8 @@ swapcoords               = no
 adress                   = no
 
 ; User defined thingies
-user1-grps               = 
-user2-grps               = 
+user1-grps               =
+user2-grps               =
 userint1                 = 0
 userint2                 = 0
 userint3                 = 0

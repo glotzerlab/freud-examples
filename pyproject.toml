@@ -1,0 +1,13 @@
+[tool.black]
+target-version = ['py36']
+include = '\.pyi?$'
+exclude = '''
+(
+  /(
+    \.git
+  )/
+)
+'''
+
+[tool.isort]
+profile = 'black'

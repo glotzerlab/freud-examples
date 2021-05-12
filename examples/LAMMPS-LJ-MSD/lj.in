@@ -7,12 +7,12 @@ boundary p p p
 
 #  define atom_style
 #  full covers everything
-atom_style  full 
+atom_style  full
 
-#  define simulation volume 
-#  If I want N = 512 atoms 
+#  define simulation volume
+#  If I want N = 512 atoms
 #  and I want a density of rho = 0.5 atoms/lj-sigma^3
-#  Then I can determine the size of a cube by 
+#  Then I can determine the size of a cube by
 #  size = (N/rho)^(1/3)
 variable side      equal 10
 region      boxid block 0.0 ${side} 0.0 ${side} 0.0 ${side}
@@ -31,7 +31,7 @@ mass        1 1.0
 
 #  specify initial velocity of atoms
 #  group = all
-#  reduced temperature is T = 1.0 = lj-eps/kb 
+#  reduced temperature is T = 1.0 = lj-eps/kb
 #  seed for random number generator
 #  distribution is gaussian (e.g. Maxwell-Boltzmann)
 velocity    all create 1.0 87287 dist gaussian
@@ -47,7 +47,7 @@ pair_coeff  1 1 1.0 1.0 2.5
 # add long-range tail correction
 pair_modify tail yes
 
-#  specify parameters for neighbor list 
+#  specify parameters for neighbor list
 #  rnbr = rcut + 0.3
 neighbor    0.3 bin
 
@@ -93,7 +93,7 @@ unfix 1
 #  initial temperature = 1.0
 #  final temperature = 1.0
 #  thermostat controller gain = 0.1 (units of time, bigger is less tight control)
-fix     2 all nvt temp 1.0 1.0 0.1 
+fix     2 all nvt temp 1.0 1.0 0.1
 
 # run 1000 steps in the NVT ensemble
 # (this equilibrates thermostat)
@@ -109,5 +109,5 @@ run     1000
 dump    2       all custom 100 output_custom.xyz x y z ix iy iz
 
 # run 1000 more steps in the NVT ensemble
-# (this is data production, from which configurations are saved) 
+# (this is data production, from which configurations are saved)
 run     8000
