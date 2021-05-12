@@ -18,7 +18,6 @@ dependencies:
   - pillow
   - pip
   - pre-commit>=2.12
-  - python>=3.6
   - scipy
   - tqdm
   - umap-learn
