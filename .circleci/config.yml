@@ -40,7 +40,7 @@ references:
         cd ~/ci/
         git clone https://github.com/glotzerlab/freud --recurse-submodules
         cd freud
-        python3 -m pip install
+        python3 -m pip install .
 
   test_execution: &test_execution
     run:
