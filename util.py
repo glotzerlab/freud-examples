@@ -1,11 +1,11 @@
 import numpy as np
-import freud
 
 
 def make_polygon(sides, radius=1):
-    thetas = np.linspace(0, 2*np.pi, sides+1)[:sides]
-    vertices = np.array([[radius*np.sin(theta), radius*np.cos(theta)]
-                         for theta in thetas])
+    thetas = np.linspace(0, 2 * np.pi, sides + 1)[:sides]
+    vertices = np.array(
+        [[radius * np.sin(theta), radius * np.cos(theta)] for theta in thetas]
+    )
     return vertices
 
 
@@ -33,22 +33,22 @@ def default_bokeh(plot):
     plot.yaxis.major_label_text_font_size = "12pt"
 
 
-def cubeellipse(theta, lam=0.5, gamma=0.6, s=4.0, r=1., h=1.):
+def cubeellipse(theta, lam=0.5, gamma=0.6, s=4.0, r=1.0, h=1.0):
     """Create an RGB colormap from an input angle theta. Takes lam (a list of
     intensity values, from 0 to 1), gamma (a nonlinear weighting power),
     s (starting angle), r (number of revolutions around the circle), and
     h (a hue factor)."""
-    lam = lam**gamma
+    lam = lam ** gamma
 
-    a = h*lam*(1 - lam)
-    v = np.array([[-.14861, 1.78277], [-.29227, -.90649], [1.97294, 0.]],
-                 dtype=np.float32)
-    ctarray = np.array([np.cos(theta*r + s), np.sin(theta*r + s)],
-                       dtype=np.float32)
+    a = h * lam * (1 - lam)
+    v = np.array(
+        [[-0.14861, 1.78277], [-0.29227, -0.90649], [1.97294, 0.0]], dtype=np.float32
+    )
+    ctarray = np.array([np.cos(theta * r + s), np.sin(theta * r + s)], dtype=np.float32)
     # convert to 255 rgb
-    ctarray = 255*(lam + a*v.dot(ctarray)).T
+    ctarray = 255 * (lam + a * v.dot(ctarray)).T
     ctarray = np.clip(ctarray.astype(dtype=np.int32), 0, 255)
-    return "#{0:02x}{1:02x}{2:02x}".format(*ctarray)
+    return "#{:02x}{:02x}{:02x}".format(*ctarray)
 
 
 def local_to_global(verts, positions, orientations):
@@ -61,12 +61,16 @@ def local_to_global(verts, positions, orientations):
     positions = np.asarray(positions)
     orientations = np.asarray(orientations)
     # create array of rotation matrices
-    rot_mats = np.array([[[np.cos(theta), -np.sin(theta)],
-                          [np.sin(theta), np.cos(theta)]]
-                         for theta in orientations])
+    rot_mats = np.array(
+        [
+            [[np.cos(theta), -np.sin(theta)], [np.sin(theta), np.cos(theta)]]
+            for theta in orientations
+        ]
+    )
     # rotate vertices
     r_verts = np.swapaxes(rot_mats @ verts.T, 1, 2)
     # now translate to global coordinates
-    output_array = np.add(r_verts, np.tile(positions[:, np.newaxis, :],
-                                           reps=(len(verts), 1)))
+    output_array = np.add(
+        r_verts, np.tile(positions[:, np.newaxis, :], reps=(len(verts), 1))
+    )
     return output_array
