@@ -2,7 +2,7 @@ channels:
   - conda-forge
 dependencies:
   - bokeh
-  - fresnel
+  - fresnel>=0.12
   - freud
   - gsd
   - hoomd=2.*
@@ -23,5 +23,5 @@ dependencies:
   - scipy
   - tqdm
   - pip:
-    - plato-draw
+    - plato-draw>=1.12
     - umap-learn
