@@ -3,9 +3,9 @@ repos:
     rev: 'v4.0.1'
     hooks:
       - id: end-of-file-fixer
-        exclude: 'setup.cfg'
+        exclude: setup.cfg|binder/Dockerfile
       - id: trailing-whitespace
-        exclude: 'setup.cfg'
+        exclude: setup.cfg|binder/Dockerfile
       - id: debug-statements
   - repo: https://github.com/asottile/pyupgrade
     rev: 'v2.16.0'
