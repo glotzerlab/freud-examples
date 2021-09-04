@@ -1,0 +1,7 @@
+import garnett
+
+with garnett.read('traj.gsd') as traj:
+
+    newtraj = traj[-4:]
+
+    garnett.write(newtraj, 'trajreduced.gsd')
