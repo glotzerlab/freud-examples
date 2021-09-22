@@ -10,7 +10,7 @@ dependencies:
   - jupyterlab>=3
   - lammps
   - matplotlib>=3
-  - mdanalysis
+  - mdanalysis>=2
   - mdtraj
   - nbconvert>=6
   - networkx
