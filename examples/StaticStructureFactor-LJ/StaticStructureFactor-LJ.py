@@ -48,5 +48,4 @@ if __name__ == "__main__":
                                 mode="wb")
     sim.operations.writers.append(gsd_writer)
 
-    # and away we go...
     sim.run(10000)
