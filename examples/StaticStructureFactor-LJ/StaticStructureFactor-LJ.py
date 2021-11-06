@@ -43,9 +43,11 @@ if __name__ == "__main__":
     sim.state.thermalize_particle_momenta(filter=hoomd.filter.All(), kT=1.5)
 
     # add a gsd writer, this will write 4 frames from the trajectory
-    gsd_writer = hoomd.write.GSD(filename="../data/LJsampleTraj.gsd",
-                                trigger=hoomd.trigger.Periodic(2500),
-                                mode="wb")
+    gsd_writer = hoomd.write.GSD(
+        filename="../data/LJsampleTraj.gsd",
+        trigger=hoomd.trigger.Periodic(2500),
+        mode="wb",
+    )
     sim.operations.writers.append(gsd_writer)
 
     # and away we go...
