@@ -27,7 +27,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.6", "3.9"]
+        python-version: ["3.7", "3.9"]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -79,7 +79,7 @@ jobs:
     # notify developers if the scheduled check fails
     - name: Slack notification
       if: ${{ github.event_name == 'schedule' && (failure() || cancelled()) }}
-      uses: 8398a7/action-slack@v3.12.0
+      uses: 8398a7/action-slack@v3.13.0
       with:
         status: ${{ job.status }}
         fields: workflow,job,message,commit
