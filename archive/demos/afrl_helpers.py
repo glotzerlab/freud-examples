@@ -446,7 +446,7 @@ def cubeellipse(theta, lam=0.6, gamma=1.0, s=4.0, r=1.0, h=1.2):
     h (a hue factor)."""
     import numpy
 
-    lam = lam ** gamma
+    lam = lam**gamma
 
     a = h * lam * (1 - lam) * 0.5
     v = numpy.array(

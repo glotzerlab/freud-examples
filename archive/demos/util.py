@@ -186,7 +186,7 @@ def cubeellipse(theta, lam=0.5, gamma=0.6, s=4.0, r=1.0, h=1.0):
     intensity values, from 0 to 1), gamma (a nonlinear weighting power),
     s (starting angle), r (number of revolutions around the circle), and
     h (a hue factor)."""
-    lam = lam ** gamma
+    lam = lam**gamma
 
     a = h * lam * (1 - lam)
     v = np.array(
