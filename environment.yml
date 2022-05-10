@@ -15,7 +15,7 @@ dependencies:
   - nbconvert>=6
   - networkx
   - notebook>=6
-  - numpy
+    # - numpy
   - pillow
   - pip
   - pre-commit>=2.12
