@@ -1,6 +1,9 @@
 channels:
   - conda-forge
 dependencies:
+  - pip:
+    - plato-draw>=1.12
+    - umap-learn
   - bokeh
   - fresnel>=0.12
   - freud
@@ -15,13 +18,10 @@ dependencies:
   - nbconvert>=6
   - networkx
   - notebook>=6
-    # - numpy
+  - numpy
   - pillow
   - pip
   - pre-commit>=2.12
   - pythreejs
   - scipy
   - tqdm
-  - pip:
-    - plato-draw>=1.12
-    - umap-learn
