@@ -12,6 +12,7 @@ on:
   # request source branch is in the same repository.
   push:
     branches:
+      - "master"
       - "next"
 
   # Trigger on request.
