@@ -120,7 +120,6 @@ class DemoData:
         title="Nearest Neighbor Visualization",
         linked_plot=None,
     ):
-
         l_box = self.box_data[frame_idx]
         l_pos = self.pos_data[frame_idx]
         l_quat = self.quat_data[frame_idx]
@@ -213,7 +212,6 @@ class DemoData:
         title="Nearest Neighbor Visualization",
         linked_plot=None,
     ):
-
         l_box = self.box_data[frame_idx]
         l_pos = self.pos_data[frame_idx]
         l_quat = self.quat_data[frame_idx]
@@ -283,7 +281,6 @@ class DemoData:
         title="Hexatic Visualization",
         linked_plot=None,
     ):
-
         l_box = self.box_data[frame_idx]
         l_pos = self.pos_data[frame_idx]
         l_quat = self.quat_data[frame_idx]
@@ -326,7 +323,6 @@ class DemoData:
     def plot_orientation(
         self, frame_idx, title="Orientation Visualization", linked_plot=None
     ):
-
         l_box = self.box_data[frame_idx]
         l_pos = self.pos_data[frame_idx]
         l_quat = self.quat_data[frame_idx]
@@ -368,7 +364,6 @@ class DemoData:
     def plot_ld(
         self, frame_idx, ld, title="Local Density Visualization", linked_plot=None
     ):
-
         l_box = self.box_data[frame_idx]
         l_pos = self.pos_data[frame_idx]
         l_quat = self.quat_data[frame_idx]
