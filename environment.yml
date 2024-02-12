@@ -4,7 +4,7 @@ dependencies:
   - bokeh
   - fresnel>=0.12
   - freud
-  - gsd
+  - gsd<3.0
   - hoomd=2.*
   - ipywidgets>=7
   - jupyterlab>=3
