@@ -4,12 +4,12 @@ dependencies:
   - bokeh
   - fresnel>=0.12
   - freud
-  - gsd
+  - gsd<3
   - hoomd=2.*
   - ipywidgets>=7
   - jupyterlab>=3
   - lammps
-  - matplotlib>=3
+  - matplotlib>=3,<3.7
   - mdanalysis>=2
   - mdtraj
   - nbconvert>=6
