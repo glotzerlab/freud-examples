@@ -1,2 +1,3 @@
+examples/gb_lattice.gsd
 *.ipynb_checkpoints
 *__pycache__
