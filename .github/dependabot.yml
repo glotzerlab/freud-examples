@@ -4,6 +4,7 @@ updates:
     directory: "/"
     target-branch: master
     schedule:
-      interval: "monthly"
+      interval: "cron"
+      cronjob: "9 12 1-7 2,5,8,11 4"
     pull-request-branch-name:
       separator: "-"
