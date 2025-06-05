@@ -31,7 +31,7 @@ jobs:
         python-version: ["3.9", "3.10"]
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4.0.0
+    - uses: actions/checkout@v4.2.2
       with:
         path: freud-examples
     # Important! All steps that use the conda environment should define "shell: bash -l {0}".
@@ -52,7 +52,7 @@ jobs:
         # Install testing requirements
         mamba install pytest nbval
     # Build freud from source to test the examples on the latest version
-    - uses: actions/checkout@v4.0.0
+    - uses: actions/checkout@v4.2.2
       with:
         path: freud
         ref: main
