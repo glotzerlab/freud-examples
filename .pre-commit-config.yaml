@@ -11,7 +11,7 @@ repos:
         exclude: 'setup.cfg'
       - id: debug-statements
   - repo: https://github.com/asottile/pyupgrade
-    rev: 'v3.19.1'
+    rev: 'v3.20.0'
     hooks:
       - id: pyupgrade
         args:
@@ -25,7 +25,7 @@ repos:
     hooks:
       - id: black
   - repo: https://github.com/PyCQA/flake8
-    rev: '7.2.0'
+    rev: '7.3.0'
     hooks:
       - id: flake8
         args:
