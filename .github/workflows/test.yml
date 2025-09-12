@@ -36,7 +36,10 @@ jobs:
     - name: List notebooks
       run: ls **/*.ipynb
       working-directory: freud-examples
-    - name: Run notebook execution tests
-      run: |-
-        python3 -m pytest -v --nbval --nbval-lax --ignore=archive/
+    - name: Execute notebooks
+      run: |
+        for i in */
+        do
+          echo "Running notebooks in: $i" && jupyter nbconvert --execute --inplace $i/*.ipynb || exit 1
+        done
       working-directory: freud-examples
