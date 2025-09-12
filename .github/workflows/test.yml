@@ -38,7 +38,7 @@ jobs:
       working-directory: freud-examples
     - name: Execute notebooks
       run: |
-        for i in */
+        for i in examples module_intros
         do
           echo "Running notebooks in: $i" && jupyter nbconvert --execute --inplace $i/*.ipynb || exit 1
         done
