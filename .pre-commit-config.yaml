@@ -7,12 +7,6 @@ repos:
       - id: trailing-whitespace
         exclude: 'setup.cfg'
       - id: debug-statements
-  - repo: https://github.com/asottile/pyupgrade
-    rev: 'v3.19.1'
-    hooks:
-      - id: pyupgrade
-        args:
-          - --py36-plus
   - repo: https://github.com/PyCQA/isort
     rev: '6.0.1'
     hooks:
@@ -30,10 +24,6 @@ repos:
   - repo: https://github.com/nbQA-dev/nbQA
     rev: 1.9.1
     hooks:
-      - id: nbqa-pyupgrade
-        args:
-          - --nbqa-mutate
-          - --py36-plus
       - id: nbqa-isort
         args:
           - --nbqa-mutate
